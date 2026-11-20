@@ -152,7 +152,7 @@ fun AboutScreen(onBack: () -> Unit) {
                     HorizontalDivider()
 
                     Text(
-                        text = "🛠️ Built With",
+                        text = "🛠️ Built With:",
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.Bold
                     )
