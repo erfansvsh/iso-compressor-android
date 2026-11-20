@@ -1,4 +1,4 @@
-name: Build Android Release APK
+name: Build Signed Android Release APK
 
 on:
   push:
@@ -20,28 +20,33 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
+    - name: Decode Keystore
+      env:
+        SIGNING_KEYSTORE_BASE64: ${{ secrets.SIGNING_KEYSTORE_BASE64 }}
+        KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+        KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+        KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+      run: |
+        if [ -n "$SIGNING_KEYSTORE_BASE64" ]; then
+          mkdir -p store-key-sign
+          echo "$SIGNING_KEYSTORE_BASE64" | base64 --decode > store-key-sign/release.jks
+          echo "storePassword=$KEYSTORE_PASSWORD" >> keystore.properties
+          echo "keyPassword=$KEY_PASSWORD" >> keystore.properties
+          echo "keyAlias=$KEY_ALIAS" >> keystore.properties
+          echo "storeFile=store-key-sign/release.jks" >> keystore.properties
+          echo "Keystore successfully decoded and configured for signing."
+        else
+          echo "No SIGNING_KEYSTORE_BASE64 secret found. Building unsigned/fallback release."
+        fi
+
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    # 1. Decode the Base64 keystore secret back into release.jks
-    - name: Decode Keystore
-      run: |
-        mkdir -p store-key-sign
-        echo "${{ secrets.RELEASE_KEYSTORE_BASE64 }}" | base64 --decode > store-key-sign/release.jks
-
-    # 2. Create keystore.properties dynamically using your GitHub Secrets
-    - name: Create keystore.properties
-      run: |
-        echo "storePassword=${{ secrets.KEYSTORE_PASSWORD }}" > keystore.properties
-        echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> keystore.properties
-        echo "keyAlias=${{ secrets.KEY_ALIAS }}" >> keystore.properties
-        echo "storeFile=store-key-sign/release.jks" >> keystore.properties
-
-    - name: Build Release APK
+    - name: Build Signed Release APK
       run: ./gradlew assembleRelease
 
     - name: Upload Release APK Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: iso-compressor-release-apk
+        name: iso-compressor-signed-release-apk
         path: app/build/outputs/apk/release/*.apk
