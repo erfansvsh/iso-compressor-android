@@ -1,0 +1,22 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+  <!-- Left/Dark Face -->
+  <path
+      android:fillColor="#0B253A"
+      android:pathData="M50,90 L15,70 L15,30 L50,50 Z"/>
+  <!-- Right/Blue Face -->
+  <path
+      android:fillColor="#3B82F6"
+      android:pathData="M50,90 L85,70 L85,30 L50,50 Z"/>
+  <!-- Top/Green Face -->
+  <path
+      android:fillColor="#10B981"
+      android:pathData="M50,10 L85,30 L50,50 L15,30 Z"/>
+  <!-- Inner Hexagon Hole / Center -->
+  <path
+      android:fillColor="#E0F2FE"
+      android:pathData="M50,35 L65,43 L65,58 L50,66 L35,58 L35,43 Z"/>
+</vector>

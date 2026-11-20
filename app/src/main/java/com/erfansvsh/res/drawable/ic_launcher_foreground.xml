@@ -1,0 +1,78 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <group
+        android:pivotX="54"
+        android:pivotY="54"
+        android:scaleX="0.8"
+        android:scaleY="0.8">
+
+        <!-- 1. LEFT DOCUMENT CARD (ISO / Disc) -->
+        <!-- Card Body -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M25,31 H45 L52,38 V69 C52,71 50,73 48,73 H25 C23,73 21,71 21,69 V35 C21,33 23,31 25,31 Z" />
+        <!-- Folded Corner -->
+        <path
+            android:fillColor="#D0D0D0"
+            android:pathData="M45,31 V38 H52 Z" />
+        <!-- Disc Outer Ring -->
+        <path
+            android:fillColor="#1565C0"
+            android:pathData="M36.5,41 A11,11 0 1,1 36.5,63 A11,11 0 1,1 36.5,41 Z" />
+        <!-- Disc Inner Ring -->
+        <path
+            android:fillColor="#64B5F6"
+            android:pathData="M36.5,46.5 A5.5,5.5 0 1,1 36.5,57.5 A5.5,5.5 0 1,1 36.5,46.5 Z" />
+        <!-- Disc Center Hole -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M36.5,50 A2,2 0 1,1 36.5,54 A2,2 0 1,1 36.5,50 Z" />
+
+        <!-- 2. RIGHT DOCUMENT CARD (CSO / Compressed Document) -->
+        <!-- Card Body -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M57,37 H77 L84,44 V75 C84,77 82,79 80,79 H57 C55,79 53,77 53,75 V41 C53,39 55,37 57,37 Z" />
+        <!-- Folded Corner -->
+        <path
+            android:fillColor="#D0D0D0"
+            android:pathData="M77,37 V44 H84 Z" />
+        <!-- Stacked Archive Layers inside Right Document -->
+        <path
+            android:fillColor="#6A1B9A"
+            android:pathData="M58,50 H75 C76,50 76.5,51.5 75.5,52.5 L66.7,56 C66.3,56.2 65.7,56.2 65.3,56 L56.5,52.5 C55.5,51.5 56,50 58,50 Z" />
+        <path
+            android:fillColor="#8E24AA"
+            android:pathData="M58,57 H75 C76,57 76.5,58.5 75.5,59.5 L66.7,63 C66.3,63.2 65.7,63.2 65.3,63 L56.5,59.5 C55.5,58.5 56,57 58,57 Z" />
+        <path
+            android:fillColor="#AB47BC"
+            android:pathData="M58,64 H75 C76,64 76.5,65.5 75.5,66.5 L66.7,70 C66.3,70.2 65.7,70.2 65.3,70 L56.5,66.5 C55.5,65.5 56,64 58,64 Z" />
+
+        <!-- 3. TOP CYAN ARROW (Drawn IN FRONT of cards) -->
+        <path
+            android:fillColor="#00000000"
+            android:strokeColor="#00E5FF"
+            android:strokeWidth="7"
+            android:strokeLineCap="round"
+            android:pathData="M 26,40 A 30,30 0 0,1 76,36" />
+        <path
+            android:fillColor="#00E5FF"
+            android:pathData="M 84,43 L 70,33 L 78,49 Z" />
+
+        <!-- 4. BOTTOM PINK ARROW (Drawn IN FRONT of cards) -->
+        <path
+            android:fillColor="#00000000"
+            android:strokeColor="#FF4081"
+            android:strokeWidth="7"
+            android:strokeLineCap="round"
+            android:pathData="M 82,68 A 30,30 0 0,1 32,72" />
+        <path
+            android:fillColor="#FF4081"
+            android:pathData="M 24,65 L 38,75 L 30,59 Z" />
+
+    </group>
+</vector>
